@@ -1,36 +1,20 @@
 {
+    "root": true,
     "env": {
-      "browser": true,
       "node": true,
-      "es2021": true
+      "browser": true
     },
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended"
-    ],
-    "parser": "@babel/eslint-parser",
     "parserOptions": {
       "ecmaFeatures": {
         "jsx": true
       },
-      "ecmaVersion": 12,
-      "sourceType": "module",
-      "requireConfigFile": false
+      "ecmaVersion": "latest",
+      "sourceType": "module"
     },
-    "plugins": [
-      "react"
-    ],
+    "extends": ["plugin:react/recommended", "plugin:react/jsx-runtime"],
     "rules": {
-      "indent": ["error", 2],
-      "linebreak-style": ["error", "unix"],
-      "quotes": ["error", "single"],
-      "semi": ["error", "always"],
-      "no-unused-vars": ["warn"],
-      "no-console": "off",
-      "eqeqeq": ["error", "always"],
-      "curly": ["error", "all"],
-      "no-trailing-spaces": ["error"],
-      "comma-dangle": ["error", "never"]
+      "react/react-in-jsx-scope": "off",
+      "semi": [2, "always"]
     },
     "settings": {
       "react": {
@@ -38,4 +22,3 @@
       }
     }
   }
-  
