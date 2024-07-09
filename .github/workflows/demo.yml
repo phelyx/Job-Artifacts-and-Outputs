@@ -13,9 +13,7 @@ jobs:
             node-version: 18
       - name: install dependencies
         run: npm ci
-      - name: Run Test
-        run:  npm test 
-      - name: lint
+      - name: lint code
         run: npm run lint
       - name: Test code 
         run: npm run test 
@@ -69,4 +67,5 @@ jobs:
         run: npm run build  
       - name: Deploy app
         run: echo "App has been deployed and running"
+
 
