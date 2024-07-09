@@ -48,13 +48,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci  
-      - name: Build project
-        run: npm run build  
       - name: Deploy app
         run: echo "App has been deployed and running"
 
