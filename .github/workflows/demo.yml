@@ -47,7 +47,7 @@ jobs:
             package.json
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latests
     steps:
       - name: Deploy app
         run: echo "App has been deployed and running"
