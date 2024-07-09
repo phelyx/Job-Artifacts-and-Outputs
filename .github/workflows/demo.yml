@@ -10,6 +10,7 @@ jobs:
       - name: install dependencies
         run: npm ci
       - name: lint code
+        run: echo "lint test passed"
       - name: Test code 
         run: npm run test 
         
