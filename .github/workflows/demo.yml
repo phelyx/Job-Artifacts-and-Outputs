@@ -44,9 +44,16 @@ jobs:
       - name: Install dependencies
         run: npm ci  
       - name: Build project
-        run: npm run build  
+        run: npm run build    
         run: echo "App has been built, ready for deployment"
-  
+      #Upload Artifacts ##
+      - name: Upload artifacts
+        uses: actions/upload
+        with: 
+          name: dist-files
+          path: |
+            dist
+            package.json
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -58,65 +65,5 @@ jobs:
       - name: Build project
         run: npm run build  
       - name: Deploy app
-        run: echo "App is being deployed and Running"
-
-
-
-name: Test Project
-on: [push, workflow_dispatch]
-jobs:   
-  lint:
-    runs-on: ubuntu-latest
-    steps: 
-    - name: Get Code
-      uses: actions/checkout@v4
-    - name: install nodejs
-      uses: actions/setup-node@v4
-      with:
-          node-version: 18
-    - name: install dependencies
-      run:  npm ci  
-    - name: Run Test
-      run:  npm test   
-    - name: lint
-      run:  npm run lint
-  
-  test:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:  
-      - name: Get Code
-        uses: actions/checkout@v4
-      - name: install nodejs
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: install dependencies
-        run:  npm ci
-      - name: Run test
-        run:  npm test
-
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v4
-      - name: install nodejs
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: install dependencies
-        run:  npm ci
-      - name: Build project
-        run:  npm run build
-      - name: Deploy App
-        run:  echo "App is deployed and running"
-  
-           
-
-
-
-
-
+        run: echo "App has been deployed and running"
 
