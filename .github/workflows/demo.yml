@@ -7,10 +7,6 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v4
-      - name: Install nodejs
-        uses: actions/setup-node@v4
-        with:
-            node-version: 18
       - name: install dependencies
         run: npm ci
       - name: lint code
@@ -26,10 +22,6 @@ jobs:
     steps:
       - name: Get Code
         uses:  actions/checkout@v4
-      - name: Insall nodejs
-        uses: actions/setup-node@v4
-        with: 
-          node-version: 18
       - name: install dependencies
         run: npm ci
       - name: Run test
