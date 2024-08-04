@@ -34,9 +34,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist-files
-          #  path: dist
-          path: |
-            dist
+          path: dist
+      #    path: |
+      #       dist
       #       package.json
 
   deploy:
@@ -50,6 +50,6 @@ jobs:
       - name: Output contents
         run: ls
       - name: Output filename
-        run: echo "${{ needs.build.outputs.script-file }}"
+        run: echo "${{ needs.build.output.script-file }}"
       - name: Deploy
         run: echo "Deploying..."
